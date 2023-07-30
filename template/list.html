@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Todo App List</h1>
+
+        <ul class="task-list" id="task-list">
+            <span class="todospan">To do list: </span>
+            <br><br>
+            {% for ig in alltask %}
+            <li>
+                <!-- Task No: {{ ig.id }}  -->
+                Task: {{ ig.task }} 
+            >>>    <a href="{% url 'delete' ig.id %}">|Done|</a>
+            </li>    
+            {% endfor %}
+        </ul><br>
+        <a href="{% url 'index' %}">Add more tasks</a>
+    </div>
+</body>
+</html>

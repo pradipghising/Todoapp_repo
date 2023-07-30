@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Todo App</h1>
+        <div class="todo-form" ><form method="POST" enctype="multipart/form-data">  
+            {% csrf_token %}
+            <label for="task"></label>          
+            <input type="text" name="task" id="task" placeholder="Enter your task...">
+            <button type="submit" name="submit" id="submit">Add Task</button>
+        </form>
+        </div>
+
+        <br><br><br>
+        <a href="{% url 'list' %}">My to do list</a>
+        <!-- <ul class="task-list" id="task-list">
+            To do list:
+            {% for ig in alltask %}
+            <li>
+                Task No: {{ ig.id }}
+            </li>
+            <li>
+                Task: {{ ig.task }}
+            </li> 
+            <li>
+                <a href="{% url 'delete' ig.id %}">|Done|</a>
+            </li>    
+            {% endfor %}
+        </ul> -->
+    </div>
+
+</body>
+</html>
